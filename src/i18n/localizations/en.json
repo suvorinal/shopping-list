@@ -1,0 +1,46 @@
+{
+    "add-new": "Add new",
+    "lost-internet-connection": "Lost internet connection",
+    "create-list": "Create list",
+    "no-available-lists": "No available lists",
+    "list-name": "List name",
+    "create": "Create",
+    "shopping-list": "Shopping List",
+    "product-name": "Product name",
+    "add": "Add",
+    "delete": "Delete",
+    "change": "Change",
+    "required-field": "Required field",
+    "share-list": "Share list",
+    "enter-valid-email": "Please enter a valid email",
+    "no-list-selected": {
+        "title": "No list selected",
+        "description": "Select or create a new shopping list."
+    },
+    "empty-list": {
+        "title": "Empty list",
+        "description": "You can add items that you want to purchase to your shopping list. Plus, you can share your lists with other users."
+    },
+    "success-product": {
+        "created": "Successfully created!",
+        "updated": "Successfully updated!",
+        "deleted": "Successfully deleted!"
+    },
+    "add-user": {
+        "add": "Add user",
+        "success": "User added successfully!",
+        "not-found": "User not found"
+    },
+    "people-with-access": "People with access",
+    "product": "0 products | {n} product | {n} products",
+    "confirm-exit": {
+        "title": "Confirm exit",
+        "description": "Are you sure you want to exit?"
+    },
+    "cancel": "Cancel",
+    "exit": "Exit",
+    "sign-in-to-use": "Sign in to use the application",
+    "choose-auth-method": "Choose an authorization method in the application",
+    "your-lists": "Your lists",
+    "shared-lists": "Shared lists"
+}

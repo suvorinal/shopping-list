@@ -1,0 +1,23 @@
+{
+  "firestore": {
+    "rules": "firestore.rules",
+    "indexes": "firestore.indexes.json"
+  },
+  "hosting": {
+    "firebase": "shopping-lists",
+    "public": "dist/spa",
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**"
+    ],
+    "rewrites": [{
+      "source": "/public/**",
+      "destination": "/public.html"
+    },
+      {
+        "source": "**",
+        "destination": "/index.html"
+      }]
+  }
+}
