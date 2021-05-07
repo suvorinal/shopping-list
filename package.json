@@ -1,9 +1,9 @@
 {
   "name": "shopping-list-quasar-next",
   "version": "0.0.1",
-  "description": "",
+  "description": "Shopping list app. Build with Quasar and Firebase",
   "productName": "Shopping list",
-  "author": "artem1syvorin <kanalartemona@gmail.com>",
+  "author": "artem1syvorin <artem1syvorin@gmail.com>",
   "private": true,
   "scripts": {
     "lint": "eslint --ext .js,.ts,.vue ./",
