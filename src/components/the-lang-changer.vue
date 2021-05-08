@@ -6,16 +6,24 @@
     </div>
 </template>
 
-<script>
+<script lang="ts">
     import { defineComponent } from 'vue'
     import { useI18n } from 'vue-i18n'
+    import { useQuasar } from 'quasar'
 
     export default defineComponent({
         name: 'v-lang-changer',
         setup() {
             const { locale } = useI18n()
+            const { localStorage } = useQuasar()
 
-            const change = (lang) => (locale.value = lang)
+            const storageLocale = localStorage.getItem('locale') as string
+            if (storageLocale) locale.value = storageLocale
+
+            function change(lang: string) {
+                localStorage.set('locale', lang)
+                locale.value = lang
+            }
 
             return {
                 change
