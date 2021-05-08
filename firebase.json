@@ -5,7 +5,7 @@
   },
   "hosting": {
     "firebase": "shopping-lists",
-    "public": "dist/spa",
+    "public": "dist/pwa",
     "ignore": [
       "firebase.json",
       "**/.*",
