@@ -20,7 +20,7 @@
                 <product-list-item
                     v-for="product in products"
                     :key="product.id"
-                    class="shopping-list_item"
+                    class="q-py-md"
                     :product="product"
                     @product-check="checkProduct"
                     @product-click="onProductClick"

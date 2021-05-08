@@ -7,7 +7,7 @@
             </q-avatar>
         </q-item-section>
         <q-item-section class="overflow-hidden">
-            <div class="text-h6">{{ user.name }}</div>
+            <h6 class="q-ma-none">{{ user.name }}</h6>
             <div class="text-body1 text-grey-13">{{ user.email }}</div>
         </q-item-section>
     </q-item>

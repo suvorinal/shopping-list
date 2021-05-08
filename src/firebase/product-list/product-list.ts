@@ -4,14 +4,13 @@ import firebase from 'firebase/app'
 
 export class ProductList {
     private readonly _collection: firebase.firestore.CollectionReference
-    private _listener: (() => void) | null = null
-    private _fn: ((data: Product[]) => void) | undefined
-    private _products: Product[] = []
+    private _listener?: () => void
+    private _fn?: (data: Product[]) => void
 
-    constructor(private readonly id: string, fn: (data: Product[]) => void) {
+    constructor(private readonly _id: string, fn: (data: Product[]) => void) {
         this._collection = database
             .collection('shopping-lists')
-            .doc(id)
+            .doc(_id)
             .collection('products')
         this.addFunction(fn)
 
@@ -20,16 +19,16 @@ export class ProductList {
 
     subscribeOnProducts() {
         this._listener = this._collection.onSnapshot((querySnapshot) => {
-            this._products = []
+            const products: Product[] = []
             querySnapshot.forEach((doc) => {
                 const data = doc.data()
-                this._products.push({
+                products.push({
                     title: data.title as string,
                     checked: data.checked as boolean,
                     id: doc.id
                 })
             })
-            this.execFunc()
+            this.execFunc(products)
         })
     }
 
@@ -47,16 +46,12 @@ export class ProductList {
         return products
     }
 
-    execFunc() {
-        if (this._fn) this._fn(this._products)
+    execFunc(products: Product[]) {
+        if (this._fn) this._fn(products)
     }
 
     addFunction(fn: (data: Product[]) => void) {
         this._fn = fn
-    }
-
-    get products(): Product[] {
-        return this._products
     }
 
     deleteFunction() {
@@ -76,17 +71,5 @@ export class ProductList {
 
     async deleteProduct(productId: string): Promise<void> {
         await this._collection.doc(productId).delete()
-    }
-
-    async addUser(listId: string, email: string) {
-        this._collection.doc(listId).update({
-            users: firebase.firestore.FieldValue.arrayUnion(email)
-        })
-    }
-
-    async deleteUser(listId: string, email: string) {
-        this._collection.doc(listId).update({
-            users: firebase.firestore.FieldValue.arrayUnion(email)
-        })
     }
 }

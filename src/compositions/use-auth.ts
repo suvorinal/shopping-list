@@ -4,9 +4,6 @@ import { UserData } from '../firebase'
 
 const userData = ref<UserData | null>(null)
 
-function auth() {
-    authService.auth()
-}
 export const isAuth = computed(() => Boolean(userData.value))
 
 async function getUserData() {
@@ -18,7 +15,6 @@ void getUserData()
 export function useAuth() {
     return {
         userData,
-        auth,
         isAuth
     }
 }

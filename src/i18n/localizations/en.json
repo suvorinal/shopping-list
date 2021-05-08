@@ -1,6 +1,6 @@
 {
     "add-new": "Add new",
-    "lost-internet-connection": "Lost internet connection",
+    "lost-internet-connection": "You have lost connection to the internet. The application works in a limited mode.",
     "create-list": "Create list",
     "no-available-lists": "No available lists",
     "list-name": "List name",
@@ -32,7 +32,7 @@
         "not-found": "User not found"
     },
     "people-with-access": "People with access",
-    "product": "0 products | {n} product | {n} products",
+    "users": "{n} user | {n} users",
     "confirm-exit": {
         "title": "Confirm exit",
         "description": "Are you sure you want to exit?"

@@ -6,12 +6,6 @@ import DocumentReference = firebase.firestore.DocumentReference
 const collection = database.collection('users')
 
 export const userService = {
-    async getUser(uid: string): Promise<UserData | null> {
-        const userInfo = await collection.doc(uid).get()
-        const data = userInfo.data() as UserData
-        return data || null
-    },
-
     createUser(uid: string, userData: UserData) {
         collection.doc(uid).set(userData)
     },

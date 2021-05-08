@@ -19,6 +19,9 @@
         <q-page-container>
             <router-view />
         </q-page-container>
+        <q-footer>
+            <the-offline-alert />
+        </q-footer>
     </q-layout>
 </template>
 
@@ -27,13 +30,15 @@
     import TheLangChanger from 'components/the-lang-changer.vue'
     import TheAppBar from 'components/the-app-bar.vue'
     import ShoppingLists from 'components/shopping-lists/shopping-lists.vue'
+    import TheOfflineAlert from 'components/the-offline-alert.vue'
 
     export default defineComponent({
         name: 'MainLayout',
         components: {
             TheLangChanger,
             ShoppingLists,
-            TheAppBar
+            TheAppBar,
+            TheOfflineAlert
         },
         setup() {
             const leftDrawerOpen = ref(false)

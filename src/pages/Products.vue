@@ -1,7 +1,7 @@
 <template>
     <dialog-form-add v-model="dialog" label="product-name" @add="addProduct" />
     <q-page class="shopping-list">
-        <product-list-add-person :list-id="$root.$route.params.id" />
+        <shared-users :list-id="$root.$route.params.id" />
         <product-list
             :products="products"
             @product-update="updateProduct"
@@ -10,12 +10,12 @@
 
         <q-btn
             rounded
-            class="shopping-list_button bg-white q-py-sm"
+            class="add-button bg-white q-py-sm"
             @click="openDialog"
             float
         >
             <q-icon name="create" />
-            <span class="shopping-list_button-text">{{ $t('add-new') }}</span>
+            <span class="q-ml-sm">{{ $t('add-new') }}</span>
         </q-btn>
     </q-page>
 </template>
@@ -26,7 +26,7 @@
     import { Product } from '../types'
     import DialogFormAdd from 'components/forms/dialog-form-add.vue'
     import ProductList from 'components/product-list/product-list.vue'
-    import ProductListAddPerson from 'components/shared-users/shared-users.vue'
+    import SharedUsers from 'components/shared-users/shared-users.vue'
     import { productService } from 'src/firebase'
 
     export default defineComponent({
@@ -34,16 +34,16 @@
         components: {
             DialogFormAdd,
             ProductList,
-            ProductListAddPerson
+            SharedUsers
         },
         setup() {
             const route = useRoute()
             const { push } = useRouter()
             const products = ref<Product[]>([])
 
-            async function subscribeOnProducts(id: string) {
+            function subscribeOnProducts(id: string) {
                 try {
-                    await productService.subscribeOnProducts(id, (data) => {
+                    productService.subscribeOnProducts(id, (data) => {
                         products.value = data
                     })
                 } catch (e) {
@@ -90,20 +90,11 @@
 </script>
 
 <style lang="scss">
-    .shopping-list {
-        &_item {
-            margin-bottom: 18px;
-        }
-        &_button {
-            position: fixed;
-            bottom: 35px;
-            left: 0;
-            right: 0;
-            margin: 0 auto;
-        }
-
-        &_button-text {
-            margin-left: 6px;
-        }
+    .add-button {
+        position: fixed;
+        bottom: 35px;
+        left: 0;
+        right: 0;
+        margin: 0 auto;
     }
 </style>

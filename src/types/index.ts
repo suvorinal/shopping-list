@@ -11,9 +11,11 @@ export type ProductBody = {
 
 export type ShoppingList = {
     title: string
+    numberOfUsers?: number
     id: string
 }
 
 export type ShoppingListBody = {
     title: string
+    numberOfUsers?: number
 }

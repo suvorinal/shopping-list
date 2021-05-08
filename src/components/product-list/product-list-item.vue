@@ -2,10 +2,10 @@
     <q-item @click.stop="onClick" clickable v-ripple>
         <q-item-section>
             <div
-                class="todo-list-item_title"
-                :class="{ 'todo-list-item_title__checked': isChecked }"
+                class="product-list-item_title"
+                :class="{ 'product-list-item_title__checked': isChecked }"
             >
-                <span class="todo-list-item_title-span text-h6">
+                <span class="product-list-item_title-span text-h6">
                     {{ product.title }}
                 </span>
             </div>
@@ -55,32 +55,18 @@
 </script>
 
 <style lang="scss" scoped>
-    .todo-list-item {
-        cursor: pointer;
-        width: 100%;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        box-sizing: border-box;
-        padding: 15px;
-        transition: 0.3s;
-        border-radius: 5px;
-
-        &:hover {
-            background: $color-hover;
-        }
-
+    .product-list-item {
         &_title {
             transition: 0.3s ease-out all;
             position: relative;
             width: fit-content;
 
             &__checked {
-                .todo-list-item_title-span:before {
+                .product-list-item_title-span:before {
                     width: 100%;
                 }
 
-                .todo-list-item_title-span {
+                .product-list-item_title-span {
                     opacity: 0.5;
                 }
             }
@@ -90,7 +76,7 @@
             transition: 0.3s ease-out all;
 
             &:before {
-                background-color: $color-text;
+                background-color: black;
                 position: absolute;
                 bottom: 47%;
                 display: block;

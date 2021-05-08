@@ -12,5 +12,4 @@ export const database = firebase.firestore()
 void database.enablePersistence()
 
 export const auth = firebase.auth()
-export const googleProvider = new firebase.auth.GoogleAuthProvider()
 export const firebaseAuthUi = new firebaseui.auth.AuthUI(auth)

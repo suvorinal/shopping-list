@@ -1,4 +1,4 @@
-import { auth, googleProvider, database } from './init'
+import { auth, database } from './init'
 import firebase from 'firebase/app'
 import User = firebase.User
 import { UserData } from './types'
@@ -16,27 +16,17 @@ function authStateChanged(): Promise<User> {
 }
 
 export const authService = {
-    authStateChanged, //todo
     async getUserData(): Promise<UserData | null> {
         try {
             const user = await authStateChanged()
-            // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-            // @ts-ignore
             return {
                 avatar: user.photoURL || '',
-                // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-                // @ts-ignore
-                uid: user.uid,
+                email: user.email || '',
                 name: user.displayName || ''
             }
         } catch (e) {
-            console.log('lelasdasglkhsdgajk hsdak jghsafkjg h')
             return null
         }
-    },
-
-    auth() {
-        void auth.signInWithRedirect(googleProvider)
     },
 
     async isAuth(): Promise<boolean> {
@@ -46,10 +36,6 @@ export const authService = {
         } catch (e) {
             return false
         }
-    },
-
-    getRedirectedResult() {
-        return auth.getRedirectResult()
     },
 
     logout() {

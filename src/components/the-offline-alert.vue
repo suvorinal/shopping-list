@@ -1,8 +1,15 @@
 <template>
-    <transition name="offline-alert">
-        <div v-show="!isOnline" class="offline-alert">
-            <span>{{ $t('lost-internet-connection') }}</span>
-        </div>
+    <transition
+        appear
+        enter-active-class="animated fadeIn"
+        leave-active-class="animated fadeOut"
+    >
+        <q-banner v-if="!isOnline" inline-actions class="text-white bg-red">
+            {{ $t('lost-internet-connection') }}
+            <template v-slot:action>
+                <q-spinner size="3em" :thickness="2" />
+            </template>
+        </q-banner>
     </transition>
 </template>
 
@@ -31,28 +38,4 @@
     })
 </script>
 
-<style lang="scss">
-    $height: 1.2rem;
-
-    .offline-alert {
-        text-align: center;
-        padding: 2px 0;
-        z-index: 1000;
-        color: $color-text-white;
-        background: $color-error;
-        width: 100%;
-        font-size: 1rem;
-        font-weight: 500;
-        height: $height;
-
-        &-enter-active,
-        &-leave-active {
-            transition: 0.2s ease;
-        }
-
-        &-enter-from,
-        &-leave-to {
-            margin-top: -$height;
-        }
-    }
-</style>
+<style lang="scss"></style>

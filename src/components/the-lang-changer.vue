@@ -35,7 +35,7 @@
         &_text {
             margin: 0 5px;
             font-size: 0.8rem;
-            color: $color-text-grey;
+            color: $grey;
         }
     }
 </style>

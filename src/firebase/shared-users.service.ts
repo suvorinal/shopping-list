@@ -1,12 +1,12 @@
-import { database } from '../init'
+import { database } from './init'
 import firebase from 'firebase/app'
 import { userService } from 'src/firebase/user.service'
 import DocumentReference = firebase.firestore.DocumentReference
-import { UserData } from 'src/firebase'
+import { UserData } from 'src/firebase/index'
 
 const collection = database.collection('shopping-lists')
 
-export const sharedUsers = {
+export const sharedUsersService = {
     async getListUsers(listId: string): Promise<UserData[]> {
         const snapshot = await collection.doc(listId).get({ source: 'cache' })
         const snapshotData = snapshot.data()
@@ -27,7 +27,7 @@ export const sharedUsers = {
 
         if (!userRef) return false
 
-        collection.doc(listId).update({
+        await collection.doc(listId).update({
             users: firebase.firestore.FieldValue.arrayUnion(userRef)
         })
 

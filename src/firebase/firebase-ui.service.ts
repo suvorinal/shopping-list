@@ -4,7 +4,6 @@ import firebase from 'firebase/app'
 
 export const FirebaseUIService = {
     start(id: string) {
-        //if (firebaseAuthUi.isPendingRedirect()) {
         firebaseAuthUi.start(`#${id}`, {
             signInOptions: [
                 firebase.auth.GoogleAuthProvider.PROVIDER_ID,
@@ -26,6 +25,5 @@ export const FirebaseUIService = {
                 }
             }
         })
-        //}
     }
 }

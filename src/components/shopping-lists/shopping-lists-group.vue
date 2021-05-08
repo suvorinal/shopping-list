@@ -15,10 +15,8 @@
             :to="'/list/' + list.id"
         >
             <q-item-section class="column">
-                <div class="text-h6">{{ list.title }}</div>
-                <div class="text-subtitle2 text-grey">
-                    {{ $tc('product', 2) }}
-                </div>
+                <h6 class="q-ma-none">{{ list.title }}</h6>
+                <div class="text-body1 text-grey">{{ $tc('users', list.numberOfUsers) }}</div>
             </q-item-section>
             <q-item-section side>
                 <q-btn
