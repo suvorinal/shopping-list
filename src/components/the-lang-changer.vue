@@ -1,8 +1,16 @@
 <template>
-    <div class="v-lang-changer">
-        <span class="v-lang-changer_text" @click="change('RU')">Русский</span>
+    <div class="text-center">
+        <span
+            class="text-body2 text-grey cursor-pointer q-mx-xs"
+            @click="change('RU')"
+            >Русский</span
+        >
         <span>&bull;</span>
-        <span class="v-lang-changer_text" @click="change('EN')">English</span>
+        <span
+            class="text-body2 text-grey cursor-pointer q-mx-xs"
+            @click="change('EN')"
+            >English</span
+        >
     </div>
 </template>
 
@@ -32,18 +40,4 @@
     })
 </script>
 
-<style lang="scss">
-    .v-lang-changer {
-        display: flex;
-        flex-direction: row;
-        justify-content: center;
-        align-items: center;
-        padding: 10px 0;
-
-        &_text {
-            margin: 0 5px;
-            font-size: 0.8rem;
-            color: $grey;
-        }
-    }
-</style>
+<style lang="scss"></style>
