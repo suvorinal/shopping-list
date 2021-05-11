@@ -16,7 +16,9 @@
         >
             <q-item-section class="column">
                 <h6 class="q-ma-none">{{ list.title }}</h6>
-                <div class="text-body1 text-grey">{{ $tc('users', list.numberOfUsers) }}</div>
+                <div v-if="list.numberOfUsers > 1" class="text-body1 text-grey">
+                    {{ $tc('users', list.numberOfUsers) }}
+                </div>
             </q-item-section>
             <q-item-section side>
                 <q-btn
