@@ -1,6 +1,6 @@
 # Shopping list (shopping-list-quasar-next)
 
-
+Link: https://buy-list-9fd07.web.app/
 
 ## Install the dependencies
 ```bash
