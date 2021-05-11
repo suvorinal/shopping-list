@@ -38,9 +38,10 @@ export const authService = {
         }
     },
 
-    logout() {
-        void database.terminate()
-        void auth.signOut()
+    async logout() {
+        await database.terminate()
+        await Promise.all([database.clearPersistence(), auth.signOut()])
+        location.reload()
     },
 
     get uid(): string {
